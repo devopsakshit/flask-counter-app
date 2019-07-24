@@ -11,36 +11,15 @@ Steps followed →
 
 2. Cloned docker image from https://hub.docker.com/r/tarunbhardwaj/flask-counter-app
 
-akshits-MacBook-Pro:fulfil-app akshitsinghal$ docker pull tarunbhardwaj/flask-counter-app
-Using default tag: latest
-latest: Pulling from tarunbhardwaj/flask-counter-app
-fc7181108d40: Pull complete
-01f3b6f74410: Pull complete
-163142c4383b: Pull complete
-eeed0da1db91: Pull complete
-ea6d6fd23371: Pull complete
-d4dcf3afea06: Pull complete
-c9a2fe54a20f: Pull complete
-Digest:
-sha256:a520b57392df38798e65a247e437db942cedc724e05af730ef5d57bf183efda6
-Status: Downloaded newer image for tarunbhardwaj/flask-counter-app:latest
-
-akshits-MacBook-Pro:fulfil-app akshitsinghal$ docker images
-REPOSITORY TAG IMAGE ID CREATED SIZE
-tarunbhardwaj/flask-counter-app latest f3dea38c3be3 3 weeks ago
-187MB
-
 
 3. Deployed redis with 1 replica considering it as master. Created 2 files →
 redis-deployments.yml and, redis-services.yml
+
 akshits-MacBook-Pro:fulfil-app akshitsinghal$ kubectl create -f redis-deployment.yaml
 deployment.extensions/redis created
 akshits-MacBook-Pro:fulfil-app akshitsinghal$ kubectl create -f redis-service.yaml
 service/redis created
-apiVersion: extensions/v1beta1
-akshits-MacBook-Pro:fulfil-app akshitsinghal$ kubectl get deployments
-kubecNAME DESIRED CURRENT UP-TO-DATE AVAILABLE AGE
-redis 1 1 1 1 20s
+
 
 
 4. Then deployed counter application and have used redis-url from the above deployed
@@ -50,6 +29,7 @@ app-services.yml
 
 5. Then I checked application logs and pod/svc/deployment status just to make sure if
 everything is fine or not.
+
 akshits-MacBook-Pro:fulfil-app akshitsinghal$ kubectl logs
 pods/fulfil-io-app-7cdbcf8976-d7j4k
 [2019-07-24 22:01:22 +0000] [6] [INFO] Starting gunicorn 19.9.0
