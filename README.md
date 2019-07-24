@@ -13,11 +13,15 @@ Steps followed →
 
 
 3. Deployed redis with 1 replica considering it as master. Created 2 files →
+
 redis-deployments.yml and, redis-services.yml
 
 akshits-MacBook-Pro:fulfil-app akshitsinghal$ kubectl create -f redis-deployment.yaml
+
 deployment.extensions/redis created
+
 akshits-MacBook-Pro:fulfil-app akshitsinghal$ kubectl create -f redis-service.yaml
+
 service/redis created
 
 
@@ -44,6 +48,7 @@ pods/fulfil-io-app-7cdbcf8976-d7j4k
 
 
 6. Tested the application by hitting the application url on browser
+
 http://34.67.121.227:5000/
 
 
