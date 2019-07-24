@@ -1,0 +1,24 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: fulfil-io-app
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: fulfil-io-app
+        tier: frontend
+    spec:
+      containers:
+      - name: fulfil-io-app
+        image: tarunbhardwaj/flask-counter-app:latest
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+        env:
+        - name: REDIS_URL
+          value: redis://10.28.1.10:6379
+        ports:
+        - containerPort: 5000
