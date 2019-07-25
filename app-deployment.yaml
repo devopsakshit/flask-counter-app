@@ -19,6 +19,6 @@ spec:
             memory: 100Mi
         env:
         - name: REDIS_URL
-          value: redis://10.28.1.10:6379
+          value: redis://redis-ha.default.svc.cluster.local:6379
         ports:
         - containerPort: 5000
